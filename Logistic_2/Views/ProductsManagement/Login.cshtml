@@ -1,0 +1,42 @@
+﻿@model Logistic_2.Models.LoginModel
+
+@{
+    Layout = null;
+}
+<link href="~/css/myCss.css" rel="stylesheet" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<form asp-action="Login" asp-controller="ProductsManagement" method="post" class="form-container">
+        <div class="form-group">
+            <label asp-for="Email" class="styleLabel">Email:</label>
+            <input asp-for="Email" class="form-control" aria-describedby="inputGroup-sizing-default" required />
+            @Html.ValidationMessageFor(e => e.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="styleLabel">Password:</label>
+            <input asp-for="Password" type="password" class="form-control" aria-describedby="inputGroup-sizing-default" required />
+            @Html.ValidationMessageFor(e => e.Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary" style="position:center" />
+            <input type="reset" value="Reset" class="btn" style="position:center" />
+        </div>
+
+</form>
+
+<script>
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("customButton");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+    function closeForm() {
+        document.getElementById("myModal").style.display = "none";
+    }
+</script>

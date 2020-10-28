@@ -1,0 +1,40 @@
+﻿
+@{
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="~/css/myCss.css" />
+    <header style="width: 100%">
+
+        <h2 style="width:100%; text-align:center;margin-top:10px">Products Management</h2>
+        <a id="customButton" role="button" class="btn btn-primary" title="LogOut"></a>
+        <a style="margin-bottom:10px;top: 50px;" class="btn btn-success" id="btnLoging"><i class="fa fa-plus" style="margin-right:10px"></i>Add item</a>
+    </header>
+    @RenderSection("Scripts", required: false)
+    <script></script>
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="~/css/myCss.css" />
+    <meta name="viewport" content="width = device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+
+<body style="margin-top:50px;margin-bottom:100px">
+    <header style="width:100%">
+
+        <a id="customButton" role="button" class="btn btn-primary" title="Login"></a>
+        <a style="margin-bottom:10px;top: 50px;" class="btn btn-success" onclick="AddingItems('@Url.Action("AddEditItem", "ProductsManagement")')"><i class="fa fa-plus" style="margin-right:10px"></i>Add item</a>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+
+</body>
+</html>
+
+
+@RenderSection("Scripts", required: false)
+<script></script>
+}
