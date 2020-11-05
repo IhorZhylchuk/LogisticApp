@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace Logistic_2
         [Required(ErrorMessage = "This field is required!")]
         public DateTime BestBefore { get; set; }
         public int Amount { get; set; }
-        public float TotalWeight { get; set; }
+        public string TotalWeight { get; set; }
         [Required(ErrorMessage = "This field is required!")]
         public string Category { get; set; }
         [Required(ErrorMessage = "This field is required!")]

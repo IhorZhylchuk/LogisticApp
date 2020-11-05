@@ -60,11 +60,6 @@ namespace Logistic_2.Controllers
             return RedirectToAction("Login", "ProductsManagement");
             
         }
-
-        public IActionResult MainIndex()
-        {
-            return View();
-        }
         public IActionResult WorkingArea()
         {
             ViewBag.Count = dbContext.Products.Select(p => p).Count();

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Logistic_2.Migrations
+namespace LogisticApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -47,8 +47,8 @@ namespace Logistic_2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("TotalWeight")
-                        .HasColumnType("real");
+                    b.Property<string>("TotalWeight")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -85,14 +85,8 @@ namespace Logistic_2.Migrations
                         new
                         {
                             Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
-                            ConcurrencyStamp = "1400f51b-e115-459e-89a8-79736f62ca81",
+                            ConcurrencyStamp = "66473d9a-8fbc-4d2b-8c4c-623f02dceefc",
                             Name = "Administrator"
-                        },
-                        new
-                        {
-                            Id = "a15be3c1-aa45-4af6-bd17-00bd9376e455",
-                            ConcurrencyStamp = "626a87bf-9204-4a17-9a1a-d3bf17297ab8",
-                            Name = "User"
                         });
                 });
 
@@ -189,33 +183,17 @@ namespace Logistic_2.Migrations
                         {
                             Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "05e02543-acb6-4c7c-8aff-dbed7156a086",
+                            ConcurrencyStamp = "4db30776-4182-4a04-a7e3-c6b09d4c6910",
                             Email = "sara@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "sara@gmail.com",
                             NormalizedUserName = "Sara",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGBGJEGp8BQ4oWXDBVZXUDlaKd97SyeghidppYj8ybwnpMb8nau6LK9PrEli+5WE/Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHeurKa5muW2daJi9PdTjYPJ/RKmfRxQf6gNz3f0QUfsKUgUBr+kMtI/GWnuvw9ylA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
                             UserName = "Sara"
-                        },
-                        new
-                        {
-                            Id = "a15be3c1-aa45-4af6-bd17-00bd9376e455",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "45f0f78d-685b-47c5-bf14-544fa67d4ac3",
-                            Email = "petro@gmail.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "petro@gmail.com",
-                            NormalizedUserName = "Petro",
-                            PasswordHash = "AQAAAAEAACcQAAAAENXngb3OnG6F649ewPuqpbC4F0EsN5P9dpbs7PoHY9jUmdwda94IBDfvavr5QmLXPw==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "Petro"
                         });
                 });
 
@@ -283,11 +261,6 @@ namespace Logistic_2.Migrations
                         new
                         {
                             UserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
-                            RoleId = "a18be9c0-aa65-4af8-bd17-00bd9344e575"
-                        },
-                        new
-                        {
-                            UserId = "a15be3c1-aa45-4af6-bd17-00bd9376e455",
                             RoleId = "a18be9c0-aa65-4af8-bd17-00bd9344e575"
                         });
                 });

@@ -31,12 +31,12 @@
 
     <div class="form-group">
         <label asp-for="Amount" class="styleLabel">Amount:</label>
-        <input asp-for="Amount" type="text" class="form-control" aria-describedby="inputGroup-sizing-default" />
+        <input asp-for="Amount" type="number" class="form-control" aria-describedby="inputGroup-sizing-default" />
 
     </div>
     <div class="form-group">
         <label asp-for="TotalWeight" class="styleLabel">Total weight:</label>
-        <input asp-for="TotalWeight" type="text" class="form-control" aria-describedby="inputGroup-sizing-default" />
+        <input asp-for="TotalWeight" type="number" step="0.1" class="form-control" aria-describedby="inputGroup-sizing-default" />
     </div>
     <div class="form-group">
         <label asp-for="Category" class="styleLabel">Category:</label>

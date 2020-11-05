@@ -120,7 +120,19 @@ input.input-validation-error {
     text-align: center;
 }
 
-#customButton {
+#workingPage{
+    margin-top: 100px;
+    margin-bottom:100px;
+}
+#customButton{
+    float: right;
+    right: 0;
+}
+#header{
+    margin-top:20px;
+    width:100%;
+}
+#addUserButton {
     float: right;
     right: 0;
 }

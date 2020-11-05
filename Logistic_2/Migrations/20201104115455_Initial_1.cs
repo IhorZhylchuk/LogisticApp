@@ -1,14 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Logistic_2.Migrations
+namespace LogisticApp.Migrations
 {
     public partial class Initial_1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
-        
+            
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -58,7 +57,7 @@ namespace Logistic_2.Migrations
                     DateOfProduction = table.Column<DateTime>(nullable: false),
                     BestBefore = table.Column<DateTime>(nullable: false),
                     Amount = table.Column<int>(nullable: false),
-                    TotalWeight = table.Column<float>(nullable: false),
+                    TotalWeight = table.Column<string>(nullable: true),
                     Category = table.Column<string>(nullable: false),
                     Container = table.Column<string>(nullable: false)
                 },
@@ -176,30 +175,17 @@ namespace Logistic_2.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[,]
-                {
-                    { "a18be9c0-aa65-4af8-bd17-00bd9344e575", "ed0404be-4eff-48fe-b33d-3a68d53dd504", "Administrator", null },
-                    { "a15be3c1-aa45-4af6-bd17-00bd9376e455", "d624d780-77d1-48b2-9182-28a6e0a1af5f", "User", null }
-                });
+                values: new object[] { "a18be9c0-aa65-4af8-bd17-00bd9344e575", "66473d9a-8fbc-4d2b-8c4c-623f02dceefc", "Administrator", null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[,]
-                {
-                    { "a18be9c0-aa65-4af8-bd17-00bd9344e575", 0, "09674090-1cef-40fc-8a15-b3ee13e31fe1", "sara@gmail.com", true, false, null, "sara@gmail.com", "Sara", "AQAAAAEAACcQAAAAEHIDOvpWgr6830zQkQU1ZgCOk7Z8TX/nWS/ubkGao7AbNOSrTqIhlpjsWXfaSAG0aw==", null, false, "", false, "Sara" },
-                    { "a15be3c1-aa45-4af6-bd17-00bd9376e455", 0, "03e44ade-8ffb-4755-99ca-fb9827ec94ce", "petro@gmail.com", true, false, null, "petro@gmail.com", "Petro", "AQAAAAEAACcQAAAAEGA2mhX+2rQGFLD5xR5+td1LL0SYCQfKsSTerFl548hddFBiCsTYr6BfZ03EYvqXFA==", null, false, "", false, "Petro" }
-                });
+                values: new object[] { "a18be9c0-aa65-4af8-bd17-00bd9344e575", 0, "4db30776-4182-4a04-a7e3-c6b09d4c6910", "sara@gmail.com", true, false, null, "sara@gmail.com", "Sara", "AQAAAAEAACcQAAAAEHeurKa5muW2daJi9PdTjYPJ/RKmfRxQf6gNz3f0QUfsKUgUBr+kMtI/GWnuvw9ylA==", null, false, "", false, "Sara" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "UserId", "RoleId" },
                 values: new object[] { "a18be9c0-aa65-4af8-bd17-00bd9344e575", "a18be9c0-aa65-4af8-bd17-00bd9344e575" });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUserRoles",
-                columns: new[] { "UserId", "RoleId" },
-                values: new object[] { "a15be3c1-aa45-4af6-bd17-00bd9376e455", "a18be9c0-aa65-4af8-bd17-00bd9344e575" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -239,7 +225,7 @@ namespace Logistic_2.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-        
+            
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

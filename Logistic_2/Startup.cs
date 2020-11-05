@@ -33,9 +33,7 @@ namespace Logistic_2
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));            
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
             services.AddControllersWithViews();
-            //services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
 
-            //services.ConfigureApplicationCookie(options => options.AccessDeniedPath = ("/ProductsManagement/Login"));
 
 
         }
