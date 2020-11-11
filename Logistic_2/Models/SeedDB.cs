@@ -25,11 +25,11 @@ namespace Logistic_2.Models
             { 
                 Id = ADMIN_ID,
                 UserName = "Sara",
-                Email = "demo",
+                Email = "sara@gmail.com",
                 EmailConfirmed = true,
                 NormalizedUserName = "Sara",
-                NormalizedEmail = "demo",
-                PasswordHash = hasher.HashPassword(null, "demo"),
+                NormalizedEmail = "sara@gmail.com",
+                PasswordHash = hasher.HashPassword(null, "qwerty12345"),
                 SecurityStamp = string.Empty            
             }
             );
