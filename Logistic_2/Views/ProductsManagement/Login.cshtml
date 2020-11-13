@@ -14,7 +14,7 @@
         @if (ViewBag.Result == "Error")
         {
 
-            @Html.ValidationMessageFor(e => e.Email, "No user with this name!", new { @style = "color: red" })
+            @Html.ValidationMessageFor(e => e.Email, "No user with this name or wrong password!", new { @style = "color: red" })
 
         }
         @Html.ValidationMessageFor(e => e.Email, "", new { @class = "text-danger" })

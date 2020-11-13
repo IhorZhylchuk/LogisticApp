@@ -89,11 +89,17 @@ namespace Logistic_2.Controllers
         {
            if(id == 0)
             {
+                ViewBag.DateProd = DateTime.Now.ToString("dd.MM.yyyy");
+                ViewBag.BestBefore = DateTime.Now.ToString("dd.MM.yyyy");
                 return View(new ProductsItems());
             }
             else
             {
+                 
                 var p = await dbContext.Products.Where(i => i.Id == id).FirstOrDefaultAsync<ProductsItems>();
+                ViewBag.DateProd = p.DateOfProduction;
+                ViewBag.BestBefore = p.BestBefore;
+
                 return View(p);
             }
 
@@ -116,7 +122,7 @@ namespace Logistic_2.Controllers
                 addedProduct.Container = product.Container;
                 addedProduct.Amount = product.Amount;
 
-                int compare = DateTime.Compare(addedProduct.DateOfProduction, addedProduct.BestBefore);
+                int compare = CompareDates(addedProduct.DateOfProduction, addedProduct.BestBefore);
                 if (compare > 0 | compare == 0)
                 {
                     return new JavaScriptResult("swal({text: 'Make sure that dates are correct!',icon: 'error',}); ");
@@ -135,8 +141,12 @@ namespace Logistic_2.Controllers
                     }
                 }
             }
-
-                dbContext.Entry(product).State = EntityState.Modified;
+            int compre = CompareDates(product.DateOfProduction, product.BestBefore);
+            if (compre > 0 | compre == 0)
+            {
+                return new JavaScriptResult("swal({text: 'Make sure that dates are correct!',icon: 'error',}); ");
+            }
+            dbContext.Entry(product).State = EntityState.Modified;
                 await dbContext.SaveChangesAsync();
                 return Json(new { success = true, message = "Saved successfully" });
             
@@ -160,5 +170,12 @@ namespace Logistic_2.Controllers
             await signInManager.SignOutAsync();
             return RedirectToAction("Login", "ProductsManagement");
         }
+
+        public int CompareDates(DateTime date_1, DateTime date_2)
+        {
+            return DateTime.Compare(date_1, date_2);
+        }
     }
+    
+
 }
