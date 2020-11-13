@@ -32,7 +32,9 @@ namespace Logistic_2.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-           
+            LoginModel login = new LoginModel();
+            var user =  userManager.FindByEmailAsync(login.Email);
+            ViewBag.User = user;
             return View();
         }
         [HttpPost]
@@ -45,12 +47,20 @@ namespace Logistic_2.Controllers
                 try
                 {
                     var user = await userManager.FindByEmailAsync(login.Email);
-                    var result = await signInManager.PasswordSignInAsync(user.UserName, login.Password, login.RememberMe, false);
-                    if (result.Succeeded)
+                    if (user != null)
                     {
-                        return RedirectToAction("WorkingArea", "ProductsManagement");
+                        var result = await signInManager.PasswordSignInAsync(user.UserName, login.Password, login.RememberMe, false);
+                        if (result.Succeeded)
+                        {
+                            return RedirectToAction("WorkingArea", "ProductsManagement");
+                        }
                     }
-                     ModelState.AddModelError("", "User was not found. Chek your email or password!");
+                                     
+                        ViewBag.Result = "Error";
+                        ModelState.AddModelError("", "User was not found. Chek your email or password!");
+                        return View();
+                    
+                   
                 }
                 catch (Exception ex)
                 {
