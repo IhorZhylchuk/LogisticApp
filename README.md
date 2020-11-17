@@ -26,4 +26,6 @@
 - Set .Web project as Startup Project and build the project.
 - Run the application.
 
+- Email - <b>demo</b>
+- Password - <b>demo</b>
 
