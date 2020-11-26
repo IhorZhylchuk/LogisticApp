@@ -10,7 +10,7 @@
 
 
 #### Prerequirements
-- Visual Studio 2017+
+- Visual Studio 2019
 - SQL Server
 
 
